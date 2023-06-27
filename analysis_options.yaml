@@ -1,0 +1,55 @@
+
+
+linter:
+  rules:
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - avoid_relative_lib_imports
+    - prefer_typing_uninitialized_variables
+    - sort_child_properties_last
+    - use_key_in_widget_constructors
+    - prefer_final_locals
+    - prefer_if_elements_to_conditional_expressions
+    - prefer_if_null_operators
+    - use_rethrow_when_possible
+    - prefer_spread_collections
+    - prefer_is_empty
+    - prefer_single_quotes
+    - avoid_unused_constructor_parameters
+    - avoid_empty_else
+    - no_duplicate_case_values
+    - camel_case_extensions
+    - use_function_type_syntax_for_parameters
+    - always_declare_return_types
+    - avoid_returning_null
+    - prefer_asserts_in_initializer_lists
+    - slash_for_doc_comments
+    - prefer_conditional_assignment
+    - prefer_for_elements_to_map_fromIterable
+    - prefer_collection_literals
+    - use_is_even_rather_than_modulo
+    - unnecessary_null_in_if_null_operators
+    - avoid_catches_without_on_clauses
+    - prefer_interpolation_to_compose_strings
+    - avoid_print
+    - always_use_package_imports
+    - avoid_return_types_on_setters
+    - always_put_required_named_parameters_first
+    - avoid_redundant_argument_values
+    - prefer_adjacent_string_concatenation
+    - avoid_bool_literals_in_conditional_expressions
+    - prefer_iterable_whereType
+    - omit_local_variable_types
+    - prefer_inlined_adds
+    - avoid_equals_and_hash_code_on_mutable_classes
+    - avoid_setters_without_getters
+    - camel_case_types
+
+analyzer:
+  exclude:
+    - lib/**/*.g.dart
+    - test/**/*.mocks.dart
+
+  errors:
+    library_private_types_in_public_api: ignore
+    todo: ignore

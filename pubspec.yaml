@@ -1,0 +1,98 @@
+name: quickstart_mvvm
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Local storage
+  flutter_secure_storage: ^8.0.0
+
+  # Remote API client
+  dio: ^5.2.1+1
+
+  # Service locator
+  get_it: ^7.6.0 
+
+  # State management
+  mobx: ^2.2.0
+  flutter_mobx: ^2.0.6+5
+
+  # Connection status
+  connectivity_plus: ^4.0.1
+
+  # Environment Variables
+  flutter_dotenv: ^5.0.2
+
+  # Manage files
+  flutter_svg: ^2.0.7
+
+  # Manage routes
+  go_router: ^8.0.5
+
+  result_dart: ^1.0.6
+
+  equatable: ^2.0.5
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.5
+  mobx_codegen: ^2.3.0
+  mocktail: ^0.3.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+     - .env
+     - assets/images/
+     - assets/icons/
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: lib/app/shared/theme/fonts/lato/Lato-Thin.ttf
+          weight: 100
+        - asset: lib/app/shared/theme/fonts/lato/Lato-Light.ttf
+          weight: 300
+        - asset: lib/app/shared/theme/fonts/lato/Lato-Regular.ttf
+          weight: 400
+        - asset: lib/app/shared/theme/fonts/lato/Lato-Bold.ttf
+          weight: 700
+        - asset: lib/app/shared/theme/fonts/lato/Lato-Black.ttf
+          weight: 900
+        - asset: lib/app/shared/theme/fonts/lato/Lato-Italic.ttf
+          style: italic
+    
+    - family: Poppins
+      fonts:
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-Thin.ttf
+          weight: 100
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-Light.ttf
+          weight: 300
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-Regular.ttf
+          weight: 400
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-Bold.ttf
+          weight: 700
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-Black.ttf
+          weight: 900
+        - asset: lib/app/shared/theme/fonts/poppins/Poppins-Italic.ttf
+          style: italic
