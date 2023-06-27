@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        color: const Color(0XFF1C5A8F),
+        color: Theme.of(context).scaffoldBackgroundColor,
       ),
     );
   }
