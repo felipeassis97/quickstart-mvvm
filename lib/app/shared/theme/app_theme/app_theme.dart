@@ -8,6 +8,7 @@ import 'package:quickstart_mvvm/app/shared/theme/app_theme/text_theme.dart';
 
 class AppTheme {
   static ThemeData theme(context) => ThemeData(
+        primaryColor: Theme.of(context).colorScheme.primary,
         useMaterial3: true,
         elevatedButtonTheme: ElevatedButtonThemeApp.theme(context),
         outlinedButtonTheme: OutlinedButtonThemeApp.theme(context),
@@ -20,6 +21,7 @@ class AppTheme {
       );
 
   static ThemeData darkTheme(context) => ThemeData(
+        primaryColor: Theme.of(context).colorScheme.primary,
         useMaterial3: true,
         elevatedButtonTheme: ElevatedButtonThemeApp.theme(context),
         outlinedButtonTheme: OutlinedButtonThemeApp.theme(context),

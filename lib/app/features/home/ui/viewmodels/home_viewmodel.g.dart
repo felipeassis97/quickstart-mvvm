@@ -13,13 +13,13 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
       Atom(name: '_HomeViewModelBase.data', context: context);
 
   @override
-  DataModel? get data {
+  ObservableList<DataModel> get data {
     _$dataAtom.reportRead();
     return super.data;
   }
 
   @override
-  set data(DataModel? value) {
+  set data(ObservableList<DataModel> value) {
     _$dataAtom.reportWrite(value, super.data, () {
       super.data = value;
     });
@@ -45,7 +45,7 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
       ActionController(name: '_HomeViewModelBase', context: context);
 
   @override
-  void setData(DataModel value) {
+  void setData(List<DataModel> value) {
     final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
         name: '_HomeViewModelBase.setData');
     try {

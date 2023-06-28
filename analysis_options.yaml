@@ -34,7 +34,6 @@ linter:
     - avoid_print
     - always_use_package_imports
     - avoid_return_types_on_setters
-    - always_put_required_named_parameters_first
     - avoid_redundant_argument_values
     - prefer_adjacent_string_concatenation
     - avoid_bool_literals_in_conditional_expressions

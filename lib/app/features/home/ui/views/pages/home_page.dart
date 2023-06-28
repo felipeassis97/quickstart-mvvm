@@ -14,12 +14,16 @@ class HomePage extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Test'),
+          title: const Text('Home'),
         ),
         body: switch (homeViewmodel.homeStatus) {
           Status.initial => const Center(child: Text('Empty State')),
           Status.loading => const Center(child: CircularProgressIndicator()),
-          Status.success => UserDataWidget(user: homeViewmodel.data!),
+          Status.success => ListView.builder(
+              itemCount: homeViewmodel.data.length,
+              itemBuilder: (context, index) {
+                return UserDataWidget(user: homeViewmodel.data[index]);
+              }),
           Status.error => const Center(child: Text('Erro')),
         },
         floatingActionButton: FloatingActionButton(

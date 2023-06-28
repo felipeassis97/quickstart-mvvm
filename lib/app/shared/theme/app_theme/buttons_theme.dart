@@ -4,7 +4,7 @@ class ElevatedButtonThemeApp {
   static ElevatedButtonThemeData theme(context) => ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+          foregroundColor: Theme.of(context).colorScheme.primary,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(40)),
           ),

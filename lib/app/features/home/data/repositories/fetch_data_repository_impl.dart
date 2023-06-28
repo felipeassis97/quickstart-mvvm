@@ -12,11 +12,16 @@ class FetchDataRepositoryImpl implements FetchDataRepository {
   final ApiClient client;
 
   @override
-  AsyncResult<DataModel, AppFailure> getData() async {
+  AsyncResult<List<DataModel>, AppFailure> getData() async {
     try {
-      final result =
-          await client.get('https://jsonplaceholder.typicode.com/todos/2');
-      return Success(DataModel.fromJson(result.data));
+      final result = await client
+          .get('https://628e3133368687f3e7121f1a.mockapi.io/api/v1/userInfo');
+
+      final response = List.from(result.data['data'])
+          .map((e) => DataModel.fromJson(e))
+          .toList();
+
+      return Success(response);
     } on ClientException catch (e) {
       if (e.type == ApiExceptionType.connectionTimeout) {
         return Failure(TimeOutFailure());
@@ -33,6 +38,9 @@ class FetchDataRepositoryImpl implements FetchDataRepository {
         case 503:
           return Failure(ServiceUnavailableFailure());
       }
+      return Failure(UnknownErrorFailure());
+    } on Exception catch (e) {
+      print('ERRO: $e');
       return Failure(UnknownErrorFailure());
     }
   }

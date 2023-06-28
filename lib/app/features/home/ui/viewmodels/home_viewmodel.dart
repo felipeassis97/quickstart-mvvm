@@ -20,20 +20,20 @@ abstract class _HomeViewModelBase with Store {
         setData(success);
       },
       (failure) {
-        if (failure is TimeOutFailure) {
-          setHomeStatus(Status.error);
-        }
+        setHomeStatus(Status.error);
+        if (failure is TimeOutFailure) {}
       },
     );
   }
 
 // Response
   @observable
-  DataModel? data;
+  ObservableList<DataModel> data = ObservableList();
   @action
-  void setData(DataModel value) => data = value;
+  void setData(List<DataModel> value) => data.addAll(value);
+
   @action
-  void clearData() => data = null;
+  void clearData() => data.clear();
 
 // States
   @observable
