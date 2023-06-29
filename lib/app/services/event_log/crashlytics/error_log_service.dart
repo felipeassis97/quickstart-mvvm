@@ -1,9 +1,11 @@
 abstract class ErrorLogService {
-  Future<void> error({
+  Future<void> registerError({
+    Object? error,
     dynamic data,
     int? statusCode,
     String? message,
+    String? path,
     String? local,
   });
-  Future<void> log(String message);
+  Future<void> registerLog(String message);
 }

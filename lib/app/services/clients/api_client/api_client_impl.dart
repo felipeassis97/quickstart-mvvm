@@ -13,19 +13,16 @@ class ApiClientImpl implements ApiClient {
     Map<String, String>? headers,
     Map<String, dynamic>? query,
   }) async {
+    Response<dynamic> response;
     try {
-      final response = await client.get(
+      response = await client.get(
         path,
         options: Options(
           headers: headers,
           validateStatus: (status) =>
-              status != null && (status >= 200 && status <= 599),
+              status != null && (status >= 200 && status <= 201),
         ),
       );
-
-      if (response.statusCode != 200) {
-        throw ClientException.fromDioResponse(response);
-      }
       return ApiResponse.fromDioResponse(response);
     } on DioException catch (e) {
       throw ClientException.fromDioException(e);
@@ -47,7 +44,7 @@ class ApiClientImpl implements ApiClient {
         options: Options(
           headers: headers,
           validateStatus: (status) =>
-              status != null && (status >= 200 && status <= 599),
+              status != null && (status >= 200 && status <= 201),
         ),
       );
       if (response.statusCode != 201) {

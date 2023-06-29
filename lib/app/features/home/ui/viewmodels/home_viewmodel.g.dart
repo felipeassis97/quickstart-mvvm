@@ -41,6 +41,22 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
     });
   }
 
+  late final _$homeErrorAtom =
+      Atom(name: '_HomeViewModelBase.homeError', context: context);
+
+  @override
+  String? get homeError {
+    _$homeErrorAtom.reportRead();
+    return super.homeError;
+  }
+
+  @override
+  set homeError(String? value) {
+    _$homeErrorAtom.reportWrite(value, super.homeError, () {
+      super.homeError = value;
+    });
+  }
+
   late final _$_HomeViewModelBaseActionController =
       ActionController(name: '_HomeViewModelBase', context: context);
 
@@ -78,10 +94,33 @@ mixin _$HomeViewModel on _HomeViewModelBase, Store {
   }
 
   @override
+  void setHomeError(String value) {
+    final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
+        name: '_HomeViewModelBase.setHomeError');
+    try {
+      return super.setHomeError(value);
+    } finally {
+      _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void clearHomeError() {
+    final _$actionInfo = _$_HomeViewModelBaseActionController.startAction(
+        name: '_HomeViewModelBase.clearHomeError');
+    try {
+      return super.clearHomeError();
+    } finally {
+      _$_HomeViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 data: ${data},
-homeStatus: ${homeStatus}
+homeStatus: ${homeStatus},
+homeError: ${homeError}
     ''';
   }
 }

@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
     return Observer(builder: (_) {
       return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: const Text('Home'),
         ),
         body: switch (homeViewmodel.homeStatus) {
@@ -24,7 +24,11 @@ class HomePage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return UserDataWidget(user: homeViewmodel.data[index]);
               }),
-          Status.error => const Center(child: Text('Erro')),
+          Status.error => Center(
+                child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(homeViewmodel.homeError ?? ''),
+            )),
         },
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.refresh_rounded),

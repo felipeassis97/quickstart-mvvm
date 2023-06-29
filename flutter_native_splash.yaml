@@ -1,0 +1,15 @@
+
+flutter_native_splash:
+ 
+  color: "#FFFFFF"
+  image: assets/splash/logo_light.png
+
+  color_dark: "#381E72"
+  image_dark: assets/splash/logo_dark.png
+
+  android_12:
+    icon_background_color: "#FFFFFF"
+    icon_background_color_dark: "#381E72"
+
+# To generate the splash, run in your terminal:
+# dart run flutter_native_splash:create --flutter_native_splash.yaml

@@ -3,13 +3,16 @@ import 'package:quickstart_mvvm/app/features/home/data/repositories/fetch_data_r
 import 'package:quickstart_mvvm/app/services/clients/api_client/api_client.dart';
 import 'package:quickstart_mvvm/app/services/clients/errors/app_exceptions.dart';
 import 'package:quickstart_mvvm/app/services/clients/errors/client_exception.dart';
+import 'package:quickstart_mvvm/app/services/event_log/crashlytics/error_log_service.dart';
 import 'package:result_dart/result_dart.dart';
 
 class FetchDataRepositoryImpl implements FetchDataRepository {
-  FetchDataRepositoryImpl({
-    required this.client, // required this.errorLog
-  });
   final ApiClient client;
+  final ErrorLogService log;
+  FetchDataRepositoryImpl({
+    required this.client,
+    required this.log,
+  });
 
   @override
   AsyncResult<List<DataModel>, AppFailure> getData() async {
@@ -23,10 +26,20 @@ class FetchDataRepositoryImpl implements FetchDataRepository {
 
       return Success(response);
     } on ClientException catch (e) {
-      if (e.type == ApiExceptionType.connectionTimeout) {
+      await log.registerError(
+          error: e.error,
+          data: e.response?.data,
+          statusCode: e.response?.statusCode,
+          message: e.response?.statusMessage,
+          path: e.requestOptions?.path,
+          local: 'FetchDataRepositoryImpl - getData');
+
+      if (e.type == ApiExceptionType.connectionTimeout ||
+          e.type == ApiExceptionType.receiveTimeout ||
+          e.type == ApiExceptionType.receiveTimeout) {
         return Failure(TimeOutFailure());
       }
-      switch (e.statusCode) {
+      switch (e.response?.statusCode) {
         case 400:
           return Failure(BadRequestFailure());
         case 401:
@@ -38,10 +51,7 @@ class FetchDataRepositoryImpl implements FetchDataRepository {
         case 503:
           return Failure(ServiceUnavailableFailure());
       }
-      return Failure(UnknownErrorFailure());
-    } on Exception catch (e) {
-      print('ERRO: $e');
-      return Failure(UnknownErrorFailure());
+      return Failure(ApiUnknownErrorFailure(exception: e));
     }
   }
 }

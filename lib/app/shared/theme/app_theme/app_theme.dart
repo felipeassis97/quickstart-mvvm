@@ -8,27 +8,25 @@ import 'package:quickstart_mvvm/app/shared/theme/app_theme/text_theme.dart';
 
 class AppTheme {
   static ThemeData theme(context) => ThemeData(
-        primaryColor: Theme.of(context).colorScheme.primary,
         useMaterial3: true,
+        colorScheme: ColorSchemeApp.light,
         elevatedButtonTheme: ElevatedButtonThemeApp.theme(context),
         outlinedButtonTheme: OutlinedButtonThemeApp.theme(context),
         textButtonTheme: TextButtonThemeApp.theme(context),
         inputDecorationTheme: InputDecorationThemeApp.theme(context),
         textTheme: TextThemeApp.theme,
-        colorScheme: ColorSchemeApp.light,
         appBarTheme: AppBarThemeApp.theme(context),
         dialogTheme: DialogThemeApp.theme(context),
       );
 
   static ThemeData darkTheme(context) => ThemeData(
-        primaryColor: Theme.of(context).colorScheme.primary,
         useMaterial3: true,
+        colorScheme: ColorSchemeApp.dark,
         elevatedButtonTheme: ElevatedButtonThemeApp.theme(context),
         outlinedButtonTheme: OutlinedButtonThemeApp.theme(context),
         textButtonTheme: TextButtonThemeApp.theme(context),
         inputDecorationTheme: InputDecorationThemeApp.theme(context),
         textTheme: TextThemeApp.theme,
-        colorScheme: ColorSchemeApp.dark,
         appBarTheme: AppBarThemeApp.theme(context),
         dialogTheme: DialogThemeApp.theme(context),
       );

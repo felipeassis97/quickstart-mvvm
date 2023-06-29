@@ -21,7 +21,11 @@ abstract class _HomeViewModelBase with Store {
       },
       (failure) {
         setHomeStatus(Status.error);
-        if (failure is TimeOutFailure) {}
+        if (failure is ApiUnknownErrorFailure) {
+          setHomeError('$failure | Error: ${failure.exception?.error}');
+        } else {
+          setHomeError('$failure');
+        }
       },
     );
   }
@@ -41,17 +45,13 @@ abstract class _HomeViewModelBase with Store {
 
   @action
   void setHomeStatus(Status value) => homeStatus = value;
-  // @observable
-  // bool homeLoading = false;
-  // @action
-  // void setHomeLoading(bool value) => homeLoading = value;
 
-  // @observable
-  // String? homeError;
-  // @action
-  // void setHomeError(String value) => homeError = value;
-  // @action
-  // void clearHomeError() => homeError = null;
+  @observable
+  String? homeError;
+  @action
+  void setHomeError(String value) => homeError = value;
+  @action
+  void clearHomeError() => homeError = null;
 }
 
 enum Status {

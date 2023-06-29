@@ -13,7 +13,7 @@ class UserDataWidget extends StatelessWidget {
         ListTile(
             onTap: () => GoRouter.of(context).go('/home/details', extra: user),
             leading: CircleAvatar(
-              radius: 50,
+              radius: 30,
               backgroundImage: NetworkImage(user.image),
             ),
             title:

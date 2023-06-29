@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:quickstart_mvvm/app/services/clients/api_client/api_response.dart';
+import 'package:quickstart_mvvm/app/services/clients/errors/client_exception.dart';
 
 abstract class AppFailure extends Equatable {}
 
@@ -33,7 +35,11 @@ class ServiceUnavailableFailure extends AppFailure {
 }
 
 // Unknown Error
-class UnknownErrorFailure extends AppFailure {
+class ApiUnknownErrorFailure extends AppFailure {
+  final ClientException? exception;
+  ApiUnknownErrorFailure({
+    this.exception,
+  });
   @override
   List<Object?> get props => [];
 }
