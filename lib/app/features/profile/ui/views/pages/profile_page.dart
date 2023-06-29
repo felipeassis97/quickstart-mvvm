@@ -34,39 +34,89 @@ class _ProfilePageState extends State<ProfilePage> {
         appBar: AppBar(
           title: const Text('Settings'),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                  child: Text(
-                    'THEME MODE',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    child: Text(
+                      'THEME MODE',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                    ),
                   ),
-                ),
-                Switch(
-                    inactiveThumbColor:
-                        Theme.of(context).colorScheme.onPrimaryContainer,
-                    thumbIcon: thumbIcon,
-                    value: value,
-                    onChanged: (val) {
-                      setState(() {
-                        value = val;
-                        if (value) {
-                          SwitchThemeMode.toggleTheme(ThemeMode.dark);
-                        } else {
-                          SwitchThemeMode.toggleTheme(ThemeMode.light);
-                        }
-                      });
-                    })
-              ],
+                  Switch(
+                      inactiveThumbColor:
+                          Theme.of(context).colorScheme.onPrimaryContainer,
+                      thumbIcon: thumbIcon,
+                      value: value,
+                      onChanged: (val) {
+                        setState(() {
+                          value = val;
+                          if (value) {
+                            SwitchThemeMode.toggleTheme(ThemeMode.dark);
+                          } else {
+                            SwitchThemeMode.toggleTheme(ThemeMode.light);
+                          }
+                        });
+                      }),
+                ],
+              ),
+              ElevatedButton(
+                  onPressed: () {}, child: const Text('Elevated Button')),
+              const SizedBox(height: 4),
+              ElevatedButton.icon(
+                  icon: Icon(Icons.close),
+                  onPressed: () {},
+                  label: const Text('Elevated Button Icon')),
+              const SizedBox(height: 8),
+              OutlinedButton(
+                  onPressed: () {}, child: const Text('Outlined Button')),
+              const SizedBox(height: 4),
+              OutlinedButton.icon(
+                  icon: Icon(Icons.close),
+                  onPressed: () {},
+                  label: const Text('Outlined Button Icon')),
+              const SizedBox(height: 8),
+              TextButton(onPressed: () {}, child: const Text('Text Button')),
+              const SizedBox(height: 4),
+              TextButton.icon(
+                  icon: Icon(Icons.close),
+                  onPressed: () {
+                    _showDialog(context);
+                  },
+                  label: const Text('Text Button Icon')),
+              const SizedBox(height: 8),
+              TextField(decoration: InputDecoration(label: Text('Teste')))
+            ],
+          ),
+        ));
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Exemplo de Diálogo'),
+          content: Text('Este é um diálogo de exemplo.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Fechar'),
             ),
           ],
-        ));
+        );
+      },
+    );
   }
 }

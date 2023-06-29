@@ -4,30 +4,33 @@ import 'package:quickstart_mvvm/app/shared/theme/app_theme/buttons_theme.dart';
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/color_scheme_theme.dart';
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/dialog_theme.dart';
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/input_decoration_theme.dart';
+import 'package:quickstart_mvvm/app/shared/theme/app_theme/switch_teme.dart';
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/text_theme.dart';
 
 class AppTheme {
-  static ThemeData theme(context) => ThemeData(
+  static ThemeData theme(context, ThemeMode mode) => ThemeData(
         useMaterial3: true,
-        colorScheme: ColorSchemeApp.light,
-        elevatedButtonTheme: ElevatedButtonThemeApp.theme(context),
-        outlinedButtonTheme: OutlinedButtonThemeApp.theme(context),
-        textButtonTheme: TextButtonThemeApp.theme(context),
-        inputDecorationTheme: InputDecorationThemeApp.theme(context),
+        colorScheme: lightColorScheme,
+        elevatedButtonTheme: ElevatedButtonThemeApp.theme(context, mode),
+        outlinedButtonTheme: OutlinedButtonThemeApp.theme(context, mode),
+        textButtonTheme: TextButtonThemeApp.theme(context, mode),
+        inputDecorationTheme: InputDecorationThemeApp.theme(context, mode),
         textTheme: TextThemeApp.theme,
-        appBarTheme: AppBarThemeApp.theme(context),
-        dialogTheme: DialogThemeApp.theme(context),
+        appBarTheme: AppBarThemeApp.theme(context, mode),
+        dialogTheme: DialogThemeApp.theme(context, mode),
+        switchTheme: SwitchThemeApp.theme(context, mode),
       );
 
-  static ThemeData darkTheme(context) => ThemeData(
+  static ThemeData darkTheme(context, ThemeMode mode) => ThemeData(
         useMaterial3: true,
-        colorScheme: ColorSchemeApp.dark,
-        elevatedButtonTheme: ElevatedButtonThemeApp.theme(context),
-        outlinedButtonTheme: OutlinedButtonThemeApp.theme(context),
-        textButtonTheme: TextButtonThemeApp.theme(context),
-        inputDecorationTheme: InputDecorationThemeApp.theme(context),
+        colorScheme: darkColorScheme,
+        elevatedButtonTheme: ElevatedButtonThemeApp.theme(context, mode),
+        outlinedButtonTheme: OutlinedButtonThemeApp.theme(context, mode),
+        textButtonTheme: TextButtonThemeApp.theme(context, mode),
+        inputDecorationTheme: InputDecorationThemeApp.theme(context, mode),
         textTheme: TextThemeApp.theme,
-        appBarTheme: AppBarThemeApp.theme(context),
-        dialogTheme: DialogThemeApp.theme(context),
+        appBarTheme: AppBarThemeApp.theme(context, mode),
+        dialogTheme: DialogThemeApp.theme(context, mode),
+        switchTheme: SwitchThemeApp.theme(context, mode),
       );
 }

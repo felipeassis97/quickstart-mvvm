@@ -1,31 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:quickstart_mvvm/app/shared/theme/app_theme/color_scheme_theme.dart';
+import 'package:quickstart_mvvm/app/shared/theme/app_theme/text_theme.dart';
 
 class ElevatedButtonThemeApp {
-  static ElevatedButtonThemeData theme(context) => ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          elevation: 0,
-          foregroundColor: Theme.of(context).colorScheme.primary,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-          ),
-        ),
-      );
+  static ElevatedButtonThemeData theme(context, ThemeMode mode) {
+    final colorScheme =
+        mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
+    return ElevatedButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
+        backgroundColor: MaterialStateProperty.all(colorScheme.primary),
+        textStyle:
+            MaterialStateProperty.all(TextThemeApp.theme.bodyLarge?.copyWith(
+          color: colorScheme.inversePrimary,
+          fontWeight: FontWeight.w700,
+        )),
+        padding: MaterialStateProperty.all(const EdgeInsets.all(16)),
+        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        )),
+      ),
+    );
+  }
 }
 
 class OutlinedButtonThemeApp {
-  static OutlinedButtonThemeData theme(context) => OutlinedButtonThemeData(
-        style: OutlinedButton.styleFrom(
-          elevation: 0,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-          ),
-        ),
-      );
+  static OutlinedButtonThemeData theme(context, ThemeMode mode) {
+    final colorScheme =
+        mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
+    return OutlinedButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(colorScheme.primary),
+        textStyle:
+            MaterialStateProperty.all(TextThemeApp.theme.bodyLarge?.copyWith(
+          color: colorScheme.inversePrimary,
+          fontWeight: FontWeight.w700,
+        )),
+        padding: MaterialStateProperty.all(const EdgeInsets.all(16)),
+        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        )),
+      ),
+    );
+  }
 }
 
 class TextButtonThemeApp {
-  static TextButtonThemeData theme(context) => TextButtonThemeData(
-        style: TextButton.styleFrom(),
-      );
+  static TextButtonThemeData theme(context, ThemeMode mode) {
+    final colorScheme =
+        mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
+    return TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(colorScheme.primary),
+        textStyle:
+            MaterialStateProperty.all(TextThemeApp.theme.bodyLarge?.copyWith(
+          color: colorScheme.inversePrimary,
+          fontWeight: FontWeight.w700,
+        )),
+        padding: MaterialStateProperty.all(const EdgeInsets.all(16)),
+        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        )),
+      ),
+    );
+  }
 }

@@ -13,7 +13,6 @@ class HomePage extends StatelessWidget {
     return Observer(builder: (_) {
       return Scaffold(
         appBar: AppBar(
-          // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: const Text('Home'),
         ),
         body: switch (homeViewmodel.homeStatus) {
