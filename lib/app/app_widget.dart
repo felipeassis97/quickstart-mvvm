@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Quickstart',
         routerConfig: goRouter,
-        theme: AppTheme.theme(
-            context, theme), // Define o tema no modo claro (light mode)
+        theme: AppTheme.theme(theme),
         darkTheme: AppTheme.darkTheme(context, theme),
         themeMode: theme,
       ),

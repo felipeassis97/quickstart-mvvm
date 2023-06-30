@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:quickstart_mvvm/app/services/clients/api_client/api_response.dart';
 import 'package:quickstart_mvvm/app/services/clients/errors/client_exception.dart';
 
 abstract class AppFailure extends Equatable {}

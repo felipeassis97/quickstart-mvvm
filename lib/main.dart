@@ -6,7 +6,7 @@ import 'package:quickstart_mvvm/app/services/service_locator/service_locator.dar
 
 void main() async {
   await setupLibraries();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 Future<void> setupLibraries() async {

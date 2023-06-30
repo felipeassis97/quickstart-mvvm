@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/color_scheme_theme.dart';
 
 class SwitchThemeApp {
-  static SwitchThemeData theme(context, ThemeMode mode) {
+  static SwitchThemeData theme(ThemeMode mode) {
     final colorScheme =
         mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
     return SwitchThemeData(

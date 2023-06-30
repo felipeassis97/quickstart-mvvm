@@ -3,7 +3,7 @@ import 'package:quickstart_mvvm/app/shared/theme/app_theme/color_scheme_theme.da
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/text_theme.dart';
 
 class ElevatedButtonThemeApp {
-  static ElevatedButtonThemeData theme(context, ThemeMode mode) {
+  static ElevatedButtonThemeData theme(ThemeMode mode) {
     final colorScheme =
         mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
     return ElevatedButtonThemeData(
@@ -25,7 +25,7 @@ class ElevatedButtonThemeApp {
 }
 
 class OutlinedButtonThemeApp {
-  static OutlinedButtonThemeData theme(context, ThemeMode mode) {
+  static OutlinedButtonThemeData theme(ThemeMode mode) {
     final colorScheme =
         mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
     return OutlinedButtonThemeData(
@@ -46,7 +46,7 @@ class OutlinedButtonThemeApp {
 }
 
 class TextButtonThemeApp {
-  static TextButtonThemeData theme(context, ThemeMode mode) {
+  static TextButtonThemeData theme(ThemeMode mode) {
     final colorScheme =
         mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
     return TextButtonThemeData(

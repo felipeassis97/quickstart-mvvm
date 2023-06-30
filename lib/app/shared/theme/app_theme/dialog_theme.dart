@@ -3,7 +3,7 @@ import 'package:quickstart_mvvm/app/shared/theme/app_theme/color_scheme_theme.da
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/text_theme.dart';
 
 class DialogThemeApp {
-  static DialogTheme theme(context, ThemeMode mode) {
+  static DialogTheme theme(ThemeMode mode) {
     final colorScheme =
         mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
     return DialogTheme(

@@ -24,9 +24,9 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
             selectedIcon: Icon(Icons.home),
           ),
           NavigationDestination(
-            label: 'Profile',
-            icon: Icon(Icons.account_circle_outlined),
-            selectedIcon: Icon(Icons.account_circle),
+            label: 'Settings',
+            icon: Icon(Icons.settings_outlined),
+            selectedIcon: Icon(Icons.settings),
           ),
         ],
         onDestinationSelected: onDestinationSelected,

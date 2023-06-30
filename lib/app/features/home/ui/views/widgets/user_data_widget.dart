@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quickstart_mvvm/app/features/home/data/models/data_model.dart';
@@ -11,7 +12,8 @@ class UserDataWidget extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-            onTap: () => GoRouter.of(context).go('/home/details', extra: user),
+            onTap: () => GoRouter.of(context).goNamed('details',
+                queryParameters: {'data': jsonEncode(user)}),
             leading: CircleAvatar(
               radius: 30,
               backgroundImage: NetworkImage(user.image),

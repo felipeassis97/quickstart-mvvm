@@ -3,7 +3,7 @@ import 'package:quickstart_mvvm/app/shared/theme/app_theme/color_scheme_theme.da
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/text_theme.dart';
 
 class AppBarThemeApp {
-  static AppBarTheme theme(context, ThemeMode mode) {
+  static AppBarTheme theme(ThemeMode mode) {
     final colorScheme =
         mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
     return AppBarTheme(

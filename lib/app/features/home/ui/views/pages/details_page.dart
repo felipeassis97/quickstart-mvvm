@@ -4,7 +4,10 @@ import 'package:quickstart_mvvm/app/features/home/ui/views/widgets/user_info_ite
 
 class DetailsPage extends StatelessWidget {
   final DataModel data;
-  const DetailsPage({super.key, required this.data});
+  const DetailsPage({
+    super.key,
+    required this.data,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class DetailsPage extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 8),
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.inversePrimary,
+                color: Theme.of(context).appBarTheme.backgroundColor,
                 borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(8))),
@@ -34,13 +37,13 @@ class DetailsPage extends StatelessWidget {
                     Text(
                       data.name,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: Theme.of(context).colorScheme.inverseSurface),
+                          color: Theme.of(context).colorScheme.onBackground),
                     ),
                     Text(
                       ', ${data.age.toString()} years',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.w400,
-                          color: Theme.of(context).colorScheme.inverseSurface),
+                          color: Theme.of(context).colorScheme.onBackground),
                     ),
                   ],
                 ),

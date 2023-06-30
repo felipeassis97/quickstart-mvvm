@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quickstart_mvvm/app/features/home/data/models/data_model.dart';
@@ -10,7 +12,7 @@ import 'package:quickstart_mvvm/app/shared/theme/widgets/navigation_menu/scaffol
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _homeNavigatorKey = GlobalKey<NavigatorState>();
-final _profileNavigatorKey = GlobalKey<NavigatorState>();
+final _settingsNavigatorKey = GlobalKey<NavigatorState>();
 
 final goRouter = GoRouter(
   initialLocation: '/',
@@ -33,15 +35,15 @@ final goRouter = GoRouter(
             GoRoute(
               path: '/home',
               pageBuilder: (context, state) =>
-                  NoTransitionPage(child: HomePage()),
+                  const NoTransitionPage(child: HomePage()),
               routes: [
                 GoRoute(
                   path: 'details',
+                  name: 'details',
                   builder: (context, state) {
-                    final data = state.extra as DataModel;
-                    return DetailsPage(
-                      data: data,
-                    );
+                    final params = jsonDecode(state.queryParameters['data']!);
+                    final data = DataModel.fromJson(params);
+                    return DetailsPage(data: data);
                   },
                 ),
               ],
@@ -49,10 +51,10 @@ final goRouter = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          navigatorKey: _profileNavigatorKey,
+          navigatorKey: _settingsNavigatorKey,
           routes: [
             GoRoute(
-              path: '/profile',
+              path: '/settings',
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: ProfilePage(),
               ),

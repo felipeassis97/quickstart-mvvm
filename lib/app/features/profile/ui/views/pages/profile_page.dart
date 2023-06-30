@@ -73,7 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   onPressed: () {}, child: const Text('Elevated Button')),
               const SizedBox(height: 4),
               ElevatedButton.icon(
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                   onPressed: () {},
                   label: const Text('Elevated Button Icon')),
               const SizedBox(height: 8),
@@ -81,20 +81,20 @@ class _ProfilePageState extends State<ProfilePage> {
                   onPressed: () {}, child: const Text('Outlined Button')),
               const SizedBox(height: 4),
               OutlinedButton.icon(
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                   onPressed: () {},
                   label: const Text('Outlined Button Icon')),
               const SizedBox(height: 8),
               TextButton(onPressed: () {}, child: const Text('Text Button')),
               const SizedBox(height: 4),
               TextButton.icon(
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                   onPressed: () {
                     _showDialog(context);
                   },
                   label: const Text('Text Button Icon')),
               const SizedBox(height: 8),
-              TextField(decoration: InputDecoration(label: Text('Teste')))
+              const TextField(decoration: InputDecoration(label: Text('Teste')))
             ],
           ),
         ));
@@ -105,14 +105,14 @@ class _ProfilePageState extends State<ProfilePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Exemplo de Diálogo'),
-          content: Text('Este é um diálogo de exemplo.'),
+          title: const Text('Exemplo de Diálogo'),
+          content: const Text('Este é um diálogo de exemplo.'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Fechar'),
+              child: const Text('Fechar'),
             ),
           ],
         );

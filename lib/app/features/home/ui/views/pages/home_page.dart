@@ -4,12 +4,20 @@ import 'package:quickstart_mvvm/app/features/home/ui/viewmodels/home_viewmodel.d
 import 'package:quickstart_mvvm/app/features/home/ui/views/widgets/user_data_widget.dart';
 import 'package:quickstart_mvvm/app/services/service_locator/service_locator.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   final homeViewmodel = ServiceLocator.locator.get<HomeViewModel>();
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Observer(builder: (_) {
       return Scaffold(
         appBar: AppBar(
@@ -36,4 +44,7 @@ class HomePage extends StatelessWidget {
       );
     });
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
