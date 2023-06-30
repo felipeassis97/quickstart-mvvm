@@ -85,19 +85,45 @@ class _ProfilePageState extends State<ProfilePage> {
                   onPressed: () {},
                   label: const Text('Outlined Button Icon')),
               const SizedBox(height: 8),
-              TextButton(onPressed: () {}, child: const Text('Text Button')),
+              TextButton(
+                  onPressed: () => _showBottomSheet(context),
+                  child: const Text('Open bottom sheet')),
               const SizedBox(height: 4),
               TextButton.icon(
                   icon: const Icon(Icons.close),
-                  onPressed: () {
-                    _showDialog(context);
-                  },
-                  label: const Text('Text Button Icon')),
+                  onPressed: () => _showDialog(context),
+                  label: const Text('Open dialog')),
               const SizedBox(height: 8),
               const TextField(decoration: InputDecoration(label: Text('Teste')))
             ],
           ),
         ));
+  }
+
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.camera),
+                title: const Text('Take a Photo'),
+                onTap: () => Navigator.pop(context),
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text('Choose from Gallery'),
+                onTap: () => Navigator.pop(context),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   void _showDialog(BuildContext context) {

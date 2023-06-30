@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/app_bar_theme.dart';
+import 'package:quickstart_mvvm/app/shared/theme/app_theme/bottom_sheet_theme.dart';
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/buttons_theme.dart';
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/color_scheme_theme.dart';
 import 'package:quickstart_mvvm/app/shared/theme/app_theme/dialog_theme.dart';
@@ -19,6 +20,7 @@ class AppTheme {
         appBarTheme: AppBarThemeApp.theme(mode),
         dialogTheme: DialogThemeApp.theme(mode),
         switchTheme: SwitchThemeApp.theme(mode),
+        bottomSheetTheme: BottomSheetThemeApp.theme(mode),
       );
 
   static ThemeData darkTheme(context, ThemeMode mode) => ThemeData(
@@ -32,5 +34,6 @@ class AppTheme {
         appBarTheme: AppBarThemeApp.theme(mode),
         dialogTheme: DialogThemeApp.theme(mode),
         switchTheme: SwitchThemeApp.theme(mode),
+        bottomSheetTheme: BottomSheetThemeApp.theme(mode),
       );
 }
