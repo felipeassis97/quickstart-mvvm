@@ -4,7 +4,7 @@
       {
         "label": "Criar nova feature",
         "type": "shell",
-        "command": "echo '\u001b[30m📚 Criando nova feature...' && mkdir -p lib/app/features/feature_name/data/models lib/app/features/feature_name/data/repositories lib/app/features/feature_name/ui/viewmodels lib/app/features/feature_name/ui/views/pages lib/app/features/feature_name/ui/views/widgets && echo -e '\u001b[32m✅ Estrutura de pastas criada com sucesso!\u001b[0m' && echo -e '\u001b[33m💡 Obs.: Certifique-se de renomear a pasta 'feature_name' com o nome da sua feature. \u001b[0m' || echo -e '\u001b[31m❌ Ocorreu um erro ao criar a estrutura de pastas.\u001b[0m'",
+        "command": "echo '\u001b[30m📚 Criando nova feature...' && mkdir -p lib/app/features/feature_name/data/models lib/app/features/feature_name/data/repositories lib/app/features/feature_name/ui/viewmodels lib/app/features/feature_name/ui/views/pages lib/app/features/feature_name/ui/views/widgets && echo -e '\u001b[32m✅ Estrutura de pastas criada com sucesso!\u001b[0m' && echo -e '\u001b[33m🔔 Obs.: Certifique-se de renomear a pasta 'feature_name' com o nome da sua feature. \u001b[0m' || echo -e '\u001b[31m❌ Ocorreu um erro ao criar a estrutura de pastas.\u001b[0m'",
         "presentation": {
           "echo": false,
           "reveal": "always",
