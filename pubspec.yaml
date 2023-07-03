@@ -1,7 +1,7 @@
 name: quickstart_mvvm
 description: A new Flutter project.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -31,22 +31,21 @@ dependencies:
   # Environment Variables
   flutter_dotenv: ^5.0.2
 
-  # Manage files
+  # Read SVG files
   flutter_svg: ^2.0.7
 
   # Manage routes
   go_router: ^9.0.0
 
+  # Multiple return
   result_dart: ^1.0.6
 
+  # Match objects
   equatable: ^2.0.5
 
+  # Splash screen configuration
   flutter_native_splash: ^2.3.1
-  dynamic_color: ^1.6.5
-
-
-
-
+ 
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -56,18 +55,14 @@ dev_dependencies:
   mocktail: ^0.3.0
   flutter_launcher_icons: ^0.13.1
   
-
-
 flutter:
   uses-material-design: true
-
   assets:
      - .env
      - assets/images/
      - assets/icons/
      - assets/launcher/
      - assets/splash/
-
   fonts:
     - family: Lato
       fonts:
@@ -83,7 +78,6 @@ flutter:
           weight: 900
         - asset: lib/app/shared/theme/fonts/lato/Lato-Italic.ttf
           style: italic
-    
     - family: Poppins
       fonts:
         - asset: lib/app/shared/theme/fonts/poppins/Poppins-Thin.ttf
