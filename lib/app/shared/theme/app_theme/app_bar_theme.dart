@@ -7,7 +7,7 @@ class AppBarThemeApp {
     final colorScheme =
         mode == ThemeMode.light ? lightColorScheme : darkColorScheme;
     return AppBarTheme(
-      backgroundColor: colorScheme.inversePrimary,
+      backgroundColor: colorScheme.primary,
       titleTextStyle: TextThemeApp.theme.titleLarge?.copyWith(
         color: colorScheme.onBackground,
       ),

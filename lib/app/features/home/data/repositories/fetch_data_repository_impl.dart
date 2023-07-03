@@ -15,7 +15,7 @@ class FetchDataRepositoryImpl implements FetchDataRepository {
   });
 
   @override
-  AsyncResult<List<DataModel>, AppFailure> getData() async {
+  AsyncResult<List<DataModel>, BaseFailure> getData() async {
     try {
       final result = await client
           .get('https://628e3133368687f3e7121f1a.mockapi.io/api/v1/userInfo');

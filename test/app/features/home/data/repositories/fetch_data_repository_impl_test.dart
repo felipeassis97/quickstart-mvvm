@@ -49,7 +49,7 @@ void main() {
     // Assert
     final result = await repository.getData();
     expect(result.isSuccess(), true);
-    expect(result, isA<Result<DataModel, AppFailure>>());
+    expect(result, isA<Result<DataModel, BaseFailure>>());
   });
 
   test(

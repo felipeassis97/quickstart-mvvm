@@ -1,40 +1,40 @@
 import 'package:equatable/equatable.dart';
 import 'package:quickstart_mvvm/app/services/clients/errors/client_exception.dart';
 
-abstract class AppFailure extends Equatable {}
+abstract base class BaseFailure extends Equatable {}
 
 // 400: Bad Request
-class BadRequestFailure extends AppFailure {
+final class BadRequestFailure extends BaseFailure {
   @override
   List<Object?> get props => [];
 }
 
 // 401: Unauthorized
-class UnauthorizedFailure extends AppFailure {
+final class UnauthorizedFailure extends BaseFailure {
   @override
   List<Object?> get props => [];
 }
 
 // 404: Not Found
-class NotFoundFailure extends AppFailure {
+final class NotFoundFailure extends BaseFailure {
   @override
   List<Object?> get props => [];
 }
 
 // 500: Internal Server Error
-class InternalServerErrorFailure extends AppFailure {
+final class InternalServerErrorFailure extends BaseFailure {
   @override
   List<Object?> get props => [];
 }
 
 // 503: Service Unavailable
-class ServiceUnavailableFailure extends AppFailure {
+final class ServiceUnavailableFailure extends BaseFailure {
   @override
   List<Object?> get props => [];
 }
 
 // Unknown Error
-class ApiUnknownErrorFailure extends AppFailure {
+final class ApiUnknownErrorFailure extends BaseFailure {
   final ClientException? exception;
   ApiUnknownErrorFailure({
     this.exception,
@@ -44,7 +44,7 @@ class ApiUnknownErrorFailure extends AppFailure {
 }
 
 // Time out
-class TimeOutFailure extends AppFailure {
+final class TimeOutFailure extends BaseFailure {
   @override
   List<Object?> get props => [];
 }

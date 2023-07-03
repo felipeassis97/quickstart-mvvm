@@ -16,6 +16,12 @@ class _HomePageState extends State<HomePage>
   final homeViewmodel = ServiceLocator.locator.get<HomeViewModel>();
 
   @override
+  void initState() {
+    super.initState();
+    homeViewmodel.getData();
+  }
+
+  @override
   Widget build(BuildContext context) {
     super.build(context);
     return Observer(builder: (_) {

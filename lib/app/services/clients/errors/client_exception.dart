@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-class ClientException implements Exception {
+final class ClientException implements Exception {
   final String? message;
   final int? statusCode;
   final dynamic data;

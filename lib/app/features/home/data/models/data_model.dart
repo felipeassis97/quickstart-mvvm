@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class DataModel extends Equatable {
+final class DataModel extends Equatable {
   final String? id;
   final String name;
   final String email;
