@@ -1,12 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quickstart_mvvm/app/features/home/data/models/data_model.dart';
 import 'package:quickstart_mvvm/app/features/home/ui/views/pages/details_page.dart';
 import 'package:quickstart_mvvm/app/features/home/ui/views/pages/home_page.dart';
-import 'package:quickstart_mvvm/app/features/profile/ui/views/pages/profile_details_page.dart';
-import 'package:quickstart_mvvm/app/features/profile/ui/views/pages/profile_page.dart';
+import 'package:quickstart_mvvm/app/features/settings/ui/views/pages/settings_page.dart';
 import 'package:quickstart_mvvm/app/features/splash/ui/splash_page.dart';
 import 'package:quickstart_mvvm/app/shared/theme/widgets/navigation_menu/scaffold_with_nested_navigation.dart';
 
@@ -56,14 +54,9 @@ final goRouter = GoRouter(
             GoRoute(
               path: '/settings',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: ProfilePage(),
+                child: SettingsPage(),
               ),
-              routes: [
-                GoRoute(
-                  path: 'details',
-                  builder: (context, state) => const ProfileDetailsPage(),
-                ),
-              ],
+              routes: [],
             ),
           ],
         ),
