@@ -1,4 +1,4 @@
-abstract class ErrorLogService {
+abstract interface class ErrorLogService {
   Future<void> registerError({
     Object? error,
     dynamic data,

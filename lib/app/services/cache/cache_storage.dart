@@ -1,4 +1,4 @@
-abstract class CacheStorage {
+abstract interface class CacheStorage {
   Future<void> write(String key, String data);
   Future<bool> containsKey(String key);
   Future<String?> read(String key);
