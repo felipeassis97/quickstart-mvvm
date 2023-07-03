@@ -1,6 +1,6 @@
 import 'package:quickstart_mvvm/app/services/clients/api_client/api_response.dart';
 
-abstract class ApiClient {
+abstract interface class ApiClient {
   Future<ApiResponse> get(
     String path, {
     Map<String, String>? headers,

@@ -1,3 +1,3 @@
-abstract class AppAssets {
+final class AppAssets {
   static const myAsset = 'path/my_asset';
 }

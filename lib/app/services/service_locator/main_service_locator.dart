@@ -6,7 +6,7 @@ import 'package:quickstart_mvvm/app/services/event_log/crashlytics/error_log_ser
 import 'package:quickstart_mvvm/app/services/event_log/crashlytics/error_log_service_impl.dart';
 import 'package:quickstart_mvvm/app/services/service_locator/service_locator.dart';
 
-class MainServiceLocator {
+final class MainServiceLocator {
   static final locator = ServiceLocator.locator;
 
   static void init() {

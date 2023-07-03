@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-class ApiResponse {
+final class ApiResponse {
   final String? message;
   final int? statusCode;
   final dynamic data;
