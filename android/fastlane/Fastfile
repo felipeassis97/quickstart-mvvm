@@ -1,0 +1,31 @@
+default_platform(:android)
+platform :android do
+
+  lane :build_debug do
+    desc 'Build debug version (.apk)'
+    setup_ci(force: true)
+    gradle(     
+      task: "assemble",
+      build_type: "Debug"
+    )
+  end
+
+  lane :build_release do
+    desc 'Build release version (.aab)'
+    gradle(
+      task: "bundle",
+      build_type: "Release"
+    )
+  end
+
+  lane :upload_play_store do
+    desc 'Send to Google Play internal test'
+    build_release
+    upload_to_play_store(
+    track: 'internal', #production, beta, alpha, internal
+    aab: '../build/app/outputs/bundle/release/app-release.aab',
+    json_key: ENV['PLAY_STORE_CONFIG_JSON'],
+    )
+  end
+
+end

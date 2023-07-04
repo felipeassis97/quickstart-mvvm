@@ -1,0 +1,59 @@
+fastlane_version "2.210.1"
+default_platform :ios
+clean_cocoapods_cache
+cocoapods
+
+platform :ios do
+
+    desc "Download all project certificates"
+    lane :download_keys do
+      match(type: "adhoc",force_for_new_devices: true, readonly: true)
+      match(type: "appstore", readonly: true)
+    end
+
+    desc "Build Signed Application for Distribution - AppDist, App center e Firebase"
+    lane :build_adHoc do
+       setup_ci(force: true)
+        match(type: "adhoc", force_for_new_devices: true, readonly: true)
+        build_app(
+            workspace: ENV["WORKSPACE"],
+            scheme: ENV["SCHEME"],
+            use_system_scm: true,
+            clean: true,
+            silent: true,
+            output_name: ENV["ARTIFACT_DEV_NAME"],
+        )
+    end
+    
+    desc "Build signed app for App Store"
+    lane :build_appStore do
+       setup_ci(force: true)
+        match(type: "appstore", readonly: true)
+        build_app(
+            workspace: ENV["WORKSPACE"],
+            scheme: ENV["SCHEME"],
+            use_system_scm: true,
+            clean: true,
+            silent: true,
+            output_name: ENV["ARTIFACT_PROD_NAME"],
+            
+        )
+    end
+
+    desc "Send version to TestFlight"
+    lane :release do
+        api_key = app_store_connect_api_key(
+          key_id: ENV["KEY_ID"],
+          issuer_id: ENV["ISSUER_ID"],
+          key_filepath: ENV["APP_STORE_CONNECT_API_KEY_PATH"],
+          duration: 1200,
+          in_house: false
+        )
+        upload_to_testflight(
+          api_key: api_key,
+          skip_submission: true,
+          ipa: ENV["ARTIFACT_PROD_NAME"],
+          skip_waiting_for_build_processing: true,
+        )
+      end
+end

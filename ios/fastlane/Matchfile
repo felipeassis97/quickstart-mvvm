@@ -1,0 +1,16 @@
+git_url("https://#{ENV["AZURE_TOKEN"]}@#{ENV["URL_DOMAIN"]}")
+storage_mode("git")
+git_branch("main")
+app_identifier(ENV["APP_IDENTIFIER"])
+api_key_path(ENV["AUTH_APP_STORE_CONNECT_API_KEY"])
+verbose	true
+generate_apple_certs false
+skip_certificate_matching true
+skip_confirmation true
+skip_docs true
+clone_branch_directly true
+
+
+
+
+
