@@ -23,17 +23,5 @@ class AppTheme {
         bottomSheetTheme: BottomSheetThemeApp.theme(mode),
       );
 
-  static ThemeData darkTheme(context, ThemeMode mode) => ThemeData(
-        useMaterial3: true,
-        colorScheme: darkColorScheme,
-        elevatedButtonTheme: ElevatedButtonThemeApp.theme(mode),
-        outlinedButtonTheme: OutlinedButtonThemeApp.theme(mode),
-        textButtonTheme: TextButtonThemeApp.theme(mode),
-        inputDecorationTheme: InputDecorationThemeApp.theme(mode),
-        textTheme: TextThemeApp.theme,
-        appBarTheme: AppBarThemeApp.theme(mode),
-        dialogTheme: DialogThemeApp.theme(mode),
-        switchTheme: SwitchThemeApp.theme(mode),
-        bottomSheetTheme: BottomSheetThemeApp.theme(mode),
-      );
+  static ThemeData darkTheme(context, ThemeMode mode) => ThemeData(useMaterial3: true, colorScheme: darkColorScheme, elevatedButtonTheme: ElevatedButtonThemeApp.theme(mode), outlinedButtonTheme: OutlinedButtonThemeApp.theme(mode), textButtonTheme: TextButtonThemeApp.theme(mode), inputDecorationTheme: InputDecorationThemeApp.theme(mode), textTheme: TextThemeApp.theme, appBarTheme: AppBarThemeApp.theme(mode), dialogTheme: DialogThemeApp.theme(mode), switchTheme: SwitchThemeApp.theme(mode), bottomSheetTheme: BottomSheetThemeApp.theme(mode));
 }
